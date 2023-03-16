@@ -1,0 +1,12 @@
+[
+    {
+        "productName":"xyz",
+        "productImage":"https://flowbite.com/docs/images/products/apple-watch.png",
+        "productCategory":"Shoe",
+        "productBrand":"Nike",
+        "productPrice":240,
+        "productStock":[{"sm":20,"m":22,"L":25,"xl":54,"2xl":65,"3xl":20}],
+        "productSold":0,
+        "ProductDeleted":false
+    }
+]

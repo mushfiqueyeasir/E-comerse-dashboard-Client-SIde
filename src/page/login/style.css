@@ -1,0 +1,100 @@
+.bodyStyle {
+  color: white;
+  font: 300 1rem/1.5 Helvetica Neue, sans-serif;
+  margin: 0;
+  min-height: 100%;
+}
+.align {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+}
+.align__item--start {
+  align-self: flex-start;
+}
+.align__item--end {
+  align-self: flex-end;
+}
+.site__logo {
+  margin-bottom: 2rem;
+}
+.formInput {
+  border: 0;
+  font: inherit;
+}
+.formInput::placeholder {
+  color: #7e8ba3;
+}
+.form__field {
+  margin-bottom: 1rem;
+}
+.form .formInput {
+  outline: 0;
+  padding: 0.5rem 1rem;
+}
+.form .formInput[type="text"],
+.form .formInput[type="password"] {
+  width: 100%;
+  font-size: 1.1rem;
+}
+.divGrid {
+  margin: 0 auto;
+  max-width: 25rem;
+  width: 100%;
+  
+}
+.h2Tag {
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 0 0 1rem;
+  text-transform: uppercase;
+  color: whitesmoke;
+}
+
+.register {
+  background: #405189;
+box-shadow: inset 20px 20px 12px #405189,
+            inset -20px -20px 12px #405189;
+  text-align: center;
+  padding: 4rem 2rem;
+
+}
+.register input {
+  border-radius: 999px;
+  background-color: transparent;
+  text-align: center;
+}
+.register input::placeholder {
+  color: rgba(83, 83, 83, 0.993)
+}
+.register input[type="text"],
+.register input[type="password"] {
+  color:black;
+  background-repeat: no-repeat;
+  background-size: 1.5rem;
+  background-position: 1rem 50%;
+  background: whitesmoke;
+box-shadow: inset 12px 12px 17px #d0d0d0,
+            inset -12px -12px 17px #f0f0f0;
+
+}
+
+
+.register input:focus::placeholder {
+  color: transparent;
+}
+
+.register input[type="submit"]{
+  box-shadow: inset -8px -8px 25px #d1d1d1,
+  inset 8px 8px 25px #ffffff;
+}
+
+.register input[type="submit"] {
+  background-image: linear-gradient(160deg, white 0%, white 100%);
+  color: #405189;
+  margin-bottom: 6rem;
+  width: 100%;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+}

@@ -1,24 +1,41 @@
-import logo from './logo.svg';
-import './App.css';
+import { Navigate, Route, Routes } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
+import Layout from "./layout/Layout";
+import DeletedProduct from "./page/deletedProduct/DeletedProduct";
+import Products from "./page/products/Products";
+import SoldProducts from "./page/soldProducts/SoldProducts";
+import "react-toastify/dist/ReactToastify.css";
+import AddProduct from "./page/addProduct/AddProduct";
+import Login from "./page/login/Login";
+import UserAuth from "./auth/UserAuth";
+import AddProduct2 from "./page/addProduct/AddProduct2";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Navigate to="dashboard" />} />
+          <Route path="dashboard" element={<h2>dashbaord</h2>} />
+          <Route path="products" element={<Products />} />
+          <Route path="soldProduct" element={<SoldProducts />} />
+          <Route path="addProduct" element={<AddProduct2 />} />
+          <Route path="deletedProduct" element={<DeletedProduct />} />
+          <Route path="user" element={<h2>user</h2>} />
+        </Route>
+
+        <Route
+          path="/login"
+          element={
+            <UserAuth>
+              <Login />
+            </UserAuth>
+          }
+        ></Route>
+      </Routes>
+
+      <ToastContainer />
+    </>
   );
 }
 
