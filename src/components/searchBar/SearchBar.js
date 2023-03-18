@@ -14,9 +14,7 @@ const SearchBar = ({ handleSearch }) => {
     <div className={searchBarContainerStyle}>
       <div className={searchBarBodyStyle}>
         <input
-          onChange={
-            (handleSearch, (event) => setSearchText(event.target.value))
-          }
+          onChange={handleSearch}
           onFocus={() => setSearch(true)}
           onBlur={() => setSearch(searchText ? true : false)}
           type="text"

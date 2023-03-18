@@ -2,16 +2,13 @@ import axios from "axios";
 import { toast } from "react-toastify";
 import { getToken } from "../utility/Constant";
 
-export const update = ({
+export const create = ({
   endPoint,
   data,
-  method,
+  imageUpdate,
+  fileUpdate,
   item,
-  activeRefetch,
-  soldRefetch,
-  deleteRefetch,
-  deleted,
-  modalCloseID,
+  refetch,
 }) => {
   const headers =
     item === "user"
@@ -24,34 +21,33 @@ export const update = ({
           "Content-Type": "multipart/form-data",
         };
   axios({
-    method: method,
+    method: "post",
     url: `${process.env.REACT_APP_API_URL}/${endPoint}`,
     data: data,
     headers: headers,
   })
     .then(function (response) {
-      if (activeRefetch) {
-        activeRefetch();
+      if (imageUpdate) {
+        imageUpdate("");
       }
-      if (soldRefetch) {
-        soldRefetch();
+      if (fileUpdate) {
+        fileUpdate("No file chosen");
       }
-      if (deleteRefetch) {
-        deleteRefetch();
+      if (refetch) {
+        refetch();
       }
-      if (modalCloseID) {
-        document.getElementById(modalCloseID).checked = false;
-      }
-
-      toast.success(`Product ${deleted ? "Deleted" : "Added"} Successfully`, {
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "light",
-      });
+      toast.success(
+        `${item === "user" ? "User" : "Product"} Added Successfully`,
+        {
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        }
+      );
     })
     .catch(function (response) {
       //handle error

@@ -8,4 +8,4 @@ export const inputContainerCX = (spanFull) => {
 
 export const legendCx = "px-2 font-semibold ";
 
-export const inputCX = "customInput  d";
+export const inputCX = "customInput";

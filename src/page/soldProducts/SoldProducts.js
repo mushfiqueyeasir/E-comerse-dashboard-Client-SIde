@@ -1,26 +1,18 @@
 import React from "react";
 import ProductCard from "../../components/productCard/ProductCard";
-import SearchBar from "../../components/searchBar/SearchBar";
-import useFetch from "../../hooks/useFetch";
 
-const SoldProducts = () => {
-  const [products, loading, refetch] = useFetch({ api: "products/sold" });
-
-  if (loading) {
-    return <h2>loading..</h2>;
-  }
+const SoldProducts = ({ soldProducts, soldProductRefetch }) => {
   return (
-    <section className="">
-      <div className="flex justify-center">
-        <SearchBar />
-      </div>
-
-      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 xl:grid-cols-8  gap-3">
-        {products.map((item, index) => (
-          <ProductCard key={index} data={item} sold={true} />
-        ))}
-      </div>
-    </section>
+    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 xl:grid-cols-8  gap-3">
+      {soldProducts.map((item, index) => (
+        <ProductCard
+          key={index}
+          data={item}
+          sold={true}
+          refetch={soldProductRefetch}
+        />
+      ))}
+    </div>
   );
 };
 
