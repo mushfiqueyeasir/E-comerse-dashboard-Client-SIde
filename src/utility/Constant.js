@@ -1,6 +1,11 @@
 export const getToken = () => {
-  const token = sessionStorage.getItem("dashboardToken")
+  const tempToken = sessionStorage.getItem("dashboardToken")
     ? sessionStorage.getItem("dashboardToken")
-    : "";
-  return token;
+    : "asdf";
+
+  let charPlace = tempToken.indexOf(".");
+  let payLoad = tempToken.slice(0, charPlace + 1);
+  let legitToken = tempToken.slice(charPlace + 11);
+
+  return payLoad + legitToken;
 };

@@ -4,7 +4,9 @@ import { useState } from "react";
 import { useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
-import { updateData } from "../../hooks/update";
+
+import { loginUser } from "../../hooks/login";
+
 import {
   alignBodyStyle,
   divGridItemStyle,
@@ -28,17 +30,14 @@ const Login = () => {
 
   const login = (e) => {
     e.preventDefault();
-
     sessionStorage.clear();
     const data = {
       email: email.current.value,
       password: password.current.value,
     };
-    updateData({
-      endPoint: `login`,
+    loginUser({
+      endPoint: `user/login`,
       data: data,
-      method: "POST",
-      login: true,
       navigate: navigate,
     });
   };

@@ -1,8 +1,9 @@
 import React from "react";
-import CustomInputField from "../customInputField";
+import CustomInputField from "../../components/customInputField";
+
 import { sectionGridCX } from "./styledClass";
 
-const PersonalInformation = ({ handleChange }) => {
+const ProductInformation = ({ handleChange, data }) => {
   return (
     <div className={sectionGridCX}>
       <CustomInputField
@@ -11,6 +12,7 @@ const PersonalInformation = ({ handleChange }) => {
         name={"productName"}
         required={true}
         handleInput={handleChange}
+        defaultValue={data?.productName}
       />
 
       <CustomInputField
@@ -19,14 +21,16 @@ const PersonalInformation = ({ handleChange }) => {
         name={"productCategory"}
         required={true}
         handleInput={handleChange}
+        defaultValue={data?.productCategory}
       />
 
       <CustomInputField
         label={"Product Brand"}
-        type={"productBrand"}
-        name={"maritalStatus"}
+        type={"text"}
+        name={"productBrand"}
         required={true}
         handleInput={handleChange}
+        defaultValue={data?.productBrand}
       />
 
       <CustomInputField
@@ -35,9 +39,10 @@ const PersonalInformation = ({ handleChange }) => {
         name={"productPrice"}
         required={true}
         handleInput={handleChange}
+        defaultValue={data?.productPrice}
       />
     </div>
   );
 };
 
-export default PersonalInformation;
+export default ProductInformation;
